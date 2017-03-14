@@ -1,0 +1,42 @@
+.func_ul{
+    list-style: none;
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.func_ul_li:first-child{
+    flex:1;
+    height: 100px;
+    border-right: 1px solid #f0f0f0;
+    background-color: #ffffff;
+}
+
+.func_ul_li{
+    flex:1;
+    height: 100px;
+    background-color: #ffffff;
+}
+
+.func_ul_li:last-child{
+    flex:1;
+    height: 100px;
+    border-left: 1px solid #f0f0f0;
+    background-color: #ffffff;
+}
+
+.func_tag_div{
+    height: 65px;
+    text-align: center;
+    padding: 18px;
+}
+
+.func_tag_div > svg{
+    height: 40px;
+    width: 40px;
+}
+.func_tag_p{
+    text-align: center;
+    font-size: 12px;
+    color: #999999;
+}

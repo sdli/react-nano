@@ -2,27 +2,36 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-  devtool: 'cheap-module-eval-source-map',
+  devtool: 'source-map',
   entry: [
     'webpack-hot-middleware/client',
     './index.js'
   ],
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
     publicPath: '/static/'
   },
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    // new webpack.optimize.UglifyJsPlugin()
   ],
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
-        loaders: ['babel'],
-        exclude: /node_modules/,
-        include: __dirname
+        use: 'babel-loader'
+      },
+      {
+        test: /\.scss$/,
+        use:  [{
+                loader: "style-loader" // creates style nodes from JS strings 
+            }, {
+                loader: "css-loader" // translates CSS into CommonJS 
+            }, {
+                loader: "sass-loader" // compiles Sass to CSS 
+            }]
       }
     ]
   }

@@ -3,7 +3,8 @@ import App from "../components/App";
 import * as actions from "../actions/login.js";
 
 const loginContainer = connect(
-    state=>{return {
+    state=>{
+        return {
         name:state.loginInfo.name,
         loginStatus:state.loginInfo.loginStatus,
         loading: state.loginInfo.loading

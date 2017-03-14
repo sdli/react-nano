@@ -7,7 +7,7 @@ app.use(session({
   secret: 'sessiontest',
   resave: false,
   saveUninitialized: false,
-  cookie: { maxAge: 60000 }
+  cookie: { maxAge: 300000}
 }));
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -36,10 +36,9 @@ app.post('/login',function(req,res,next){
     }else{
        const result = {
               status: false,
-              code: '1',
-              msg: 'succ',
+              code: '0',
+              msg: 'fail',
               username: req.body.username,
-              password: req.body.password,
               count: sess.count
           };
           sess.status = false;
@@ -54,6 +53,7 @@ app.post('/loadAuth',function(req,res,next){
   if(loginStatus){
       let result = {
           code : '1',
+          username: req.session.username,
           msg : 'login auth OK!'
       };
       res.json(result);

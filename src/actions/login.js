@@ -1,19 +1,29 @@
-import { LOGIN, LOGOUT} from "../constants/index";
+import { LOGINOK, LOGOUT , LOGINFAIL} from "../constants/index";
 
 
-export function login(name,status){
-    if(status){
-        return {
-            type: LOGIN,
-            name: name,
-            status: status,
-        }
-    }else{
-        return {
-            type: LOGOUT,
-            name: name,
-            status: status,
-        };
+export function login(name,type){
+    switch(type){
+        case "loginOK":
+            return {
+                type: LOGINOK,
+                name: name,
+                status: status
+            };
+            break;
+        case "loginFail":
+            return {
+                type: LOGINFAIL,
+                name: name,
+                status: status,
+            };
+            break;
+        case "logout":        
+            return {
+                type: LOGOUT,
+                name: name,
+                status: status
+            };
+            break;
     }
 }
 
@@ -24,16 +34,20 @@ export function loginCheck(username,password){
                 headers: {"Content-type": "application/x-www-form-urlencoded; charset=UTF-8"},
                 body: "username=" + username + "&password=" + password,
                 credentials:'include'
-            }).then(response => response.json()).then(json =>{
-                    console.log(json);
-                    if(parseInt(json.code)>=1){
-                        return dispatch(login(json.username,true));
-                    }else{
-                        return dispatch(login(json.username,false))
-                    }
+        }).then(response => response.json()).then(json =>{
+                if(parseInt(json.code)>=1){
+                    dispatch(login(json.username,'loginOK'));
+                    return true;
+                }else{
+                    alert('登录失败，请重新输入！');
                 }
-            );
+            }
+        );
     }
+}
+
+export function submmitFail(){
+    
 }
 
 export function getAuth(){
@@ -43,13 +57,10 @@ export function getAuth(){
             headers: {"Content-type": "application/x-www-form-urlencoded; charset=UTF-8"},
             credentials:'include'
         }).then(response => response.json()).then(json =>{
-                console.log(json);
                 if(parseInt(json.code)>=1){
-                    dispatch(login(json.username,true));
-                    return Promise.resolve();
+                    dispatch(login(json.username,"loginOK"));
                 }else{
-                    dispatch(login('',false));
-                    return Promise.resolve();
+                    dispatch(login('',"loginFail"));
                 }
             }
         );

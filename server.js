@@ -23,7 +23,6 @@ app.get("/", function(req, res) {
 });
 
 app.use("/api",function(req,res){
-  console.log('req start');
   proxy.web(req,res,{target: 'http://localhost:3060'});
 });
 
