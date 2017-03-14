@@ -4,7 +4,10 @@
   "description": "React Redux example",
   "scripts": {
     "start": "npm run dev",
-    "dev": "concurrently -k \"node server.js\" \"node src/api/login\" "
+    "build": "webpack --config webpack.config.js",
+    "start-server" : "node server.js",
+    "start-api": "node src/api/login",
+    "dev": "npm run build && concurrently -k \" npm run start-server \" \"npm run start-api\" "
   },
   "dependencies": {
     "body-parser": "^1.17.0",
