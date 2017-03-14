@@ -1,5 +1,5 @@
 {
-  "name": "11-counter-connect",
+  "name": "ydj",
   "version": "0.0.0",
   "description": "React Redux example",
   "scripts": {
@@ -42,14 +42,5 @@
     "webpack": "^2.2.0",
     "webpack-dev-middleware": "^1.2.0",
     "webpack-hot-middleware": "^2.9.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lewis617/react-redux-book.git"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/lewis617/react-redux-book/issues"
-  },
-  "homepage": "https://github.com/lewis617/react-redux-book#readme"
+  }
 }
