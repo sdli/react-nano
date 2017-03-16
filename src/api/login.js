@@ -2,12 +2,13 @@ var app = new (require('express'))();
 var bodyParser = require("body-parser");
 var port = 3060;
 var session = require("express-session");
+var captchapng = require('captchapng');
 
 app.use(session({
   secret: 'sessiontest',
   resave: false,
   saveUninitialized: false,
-  cookie: { maxAge: 300000}
+  cookie: { maxAge: 3000}
 }));
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -32,7 +33,9 @@ app.post('/login',function(req,res,next){
           sess.username = req.body.username;
           res.setHeader("Access-Control-Allow-Origin","*");
           res.setHeader("Content-Type","application/json");
-          res.json(result);
+          setTimeout(function() {
+              res.json(result);
+          }, 2000);
     }else{
        const result = {
               status: false,
@@ -64,6 +67,22 @@ app.post('/loadAuth',function(req,res,next){
     };
     res.json(result);
   }
+});
+
+app.get('/img',function(req,res,next){
+    var pngNum = parseInt(Math.random()*9000+1000);
+    req.session.pngNum = pngNum;
+    var p = new captchapng(80,30,parseInt(Math.random()*9000+1000)); // width,height,numeric captcha 
+    p.color(0, 0, 0, 0);  // First color: background (red, green, blue, alpha) 
+    p.color(80, 80, 80, 255); // Second color: paint (red, green, blue, alpha) 
+
+    var img = p.getBase64();
+    var imgbase64 = new Buffer(img,'base64');
+    res.writeHead(200, {
+        'Content-Type': 'image/png'
+    });
+    res.end(imgbase64);
+    next();
 });
 
 app.listen(port,function(error) {

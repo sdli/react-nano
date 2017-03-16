@@ -1,12 +1,27 @@
+$blue: #00BCD4;
 
 .loginDiv{
     width: 90%;
-    margin: 16px 5%;
-    box-shadow: 0 0 4px #f0f0f0;
-    padding: 32px;
+    margin: 32px 5%;
+    box-shadow: 0 0 10px #999999;
+    position: absolute;
+    min-height: 90%; 
+}
+.loginHeader{
+    width: 100%;
+    height: 44px;
+    text-align: center;
+    background-color:$blue;
+}
+.loginHeader > h4{
+   line-height: 44px;
+   font-size: 14px;
+   color: #ffffff;
 }
 .loginForm{
-    width: 100%;
+    width: 80%;
+    margin: 16px 10%;
+    display: block;
     height: auto;
     display: inline-block;
 }
@@ -20,5 +35,19 @@
     margin: 0 auto;
 }
 .login_btn_set{
-    margin: 16px auto;
+    margin: 32px auto;
+}
+.login_code{
+    position: absolute;
+    right: 0 ;
+    top: 22px;
+    box-shadow: 0 0 2px #f0f0f0;
+}
+.loginFooter{
+    position: absolute;
+    bottom: 16px;
+    width: 100%;
+    text-align: center;
+    opacity:0.5;
+    font-size: 11px;
 }

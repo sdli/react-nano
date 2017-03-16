@@ -8,9 +8,17 @@ import ContentSend from 'material-ui/svg-icons/content/send';
 import ContentDrafts from 'material-ui/svg-icons/content/drafts';
 
 class Nav extends Component{
+    /*
+    抽屉效果使用material-ui的drawer,
+    使用state注册客户端宽度，并赋值给drawer,
+    留空出点击关闭drawer。
+    */
     constructor(props){
         super(props);
-        this.state = {open:false};
+        /*
+        open用户开关drawer，drawerWidth计算drawer宽度
+        */
+        this.state = {open:false,drawerWidth: '240px'};
         this.ShowLeftCase = this.ShowLeftCase.bind(this);
     }
 
@@ -20,6 +28,16 @@ class Nav extends Component{
 
     CloseLeftCase(){
         this.setState({open: false});
+    }
+
+    /*
+    检测是否在客户端环境，并获取availWidth。
+    */
+    componentWillMount(){
+        if(typeof window !== 'undefined'){
+            let clientWidth = window.screen.availWidth;
+            this.setState({drawerWidth: clientWidth*0.75});
+        }
     }
 
     render(){
@@ -33,7 +51,7 @@ class Nav extends Component{
                 />
                 <Drawer 
                     docked={false}
-                    width={300}
+                    width={this.state.drawerWidth}
                     open={this.state.open}
                     onRequestChange={(open) => this.setState({open})}>
                     <AppBar

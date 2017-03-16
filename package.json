@@ -4,10 +4,11 @@
   "description": "React Redux example",
   "scripts": {
     "start": "npm run dev",
-    "build": "webpack --config webpack.config.js",
-    "start-server" : "node server.js",
+    "build": "webpack -config webpack.config.js ",
+    "start-server": "node server.js",
     "start-api": "node src/api/login",
-    "dev": "npm run build && concurrently -k \" npm run start-server \" \"npm run start-api\" "
+    "dev": "concurrently -k \" node server.js\" \"node src/api/login\" ",
+    "prod": "npm run build && concurrently -k \" npm run start-server \" \"npm run start-api\" "
   },
   "dependencies": {
     "body-parser": "^1.17.0",
@@ -26,6 +27,7 @@
     "sass-loader": "^3.2.0"
   },
   "devDependencies": {
+    "autoprefixer": "^6.7.7",
     "babel-core": "^6.3.15",
     "babel-loader": "^6.2.0",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
@@ -39,6 +41,7 @@
     "extract-text-webpack-plugin": "^2.1.0",
     "material-ui": "^0.17.0",
     "node-sass": "^3.13.1",
+    "postcss-loader": "^1.3.3",
     "react-tap-event-plugin": "^2.0.1",
     "sass-loader": "^3.2.3",
     "style-loader": "^0.13.2",

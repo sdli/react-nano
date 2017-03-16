@@ -7,7 +7,7 @@ const loginContainer = connect(
         return {
         name:state.loginInfo.name,
         loginStatus:state.loginInfo.loginStatus,
-        loading: state.loginInfo.loading
+        loading: state.loading.loading
     };},
     actions
 )(App); 

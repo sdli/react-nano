@@ -1,14 +1,16 @@
 var path = require('path');
 var webpack = require('webpack');
+var autoprefixer = require('autoprefixer');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");// 默认的webpack 会将require("style.css")文件嵌入js文件中，使用该插件会将css从js中提取出来
 
 module.exports = {
-  // devtool: 'source-map',
-  devtool: false,
+  devtool: 'source-map',
+  // devtool: false,
   entry: {
     bundle: [
       './index.js'
     ],
-    vendor: ['react']
+    vendor: ['react', 'react-dom', 'react-router', 'redux','redux-form','material-ui']
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -17,7 +19,8 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
-    // new webpack.HotModuleReplacementPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new ExtractTextPlugin({ filename: 'style.css', disable: false, allChunks: true }),
     new webpack.optimize.UglifyJsPlugin({
       output: {
         comments: false,  // remove all comments
@@ -29,6 +32,11 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production')
+      },
+      options:{
+        postcss: function(){
+          return [autoprefixer];
+        }
       }
     }),
     new webpack.optimize.CommonsChunkPlugin({
@@ -44,14 +52,18 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use:  [{
-                loader: "style-loader" // creates style nodes from JS strings 
-            }, {
-                loader: "css-loader" // translates CSS into CommonJS 
-            }, {
-                loader: "sass-loader" // compiles Sass to CSS 
-            }]
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'sass-loader']
+        })
+      },
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: "css-loader"
+        })
       }
     ]
-  }
+  },
 };

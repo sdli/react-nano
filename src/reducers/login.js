@@ -2,8 +2,7 @@ import {LOGINOK,LOGOUT,LOGINFAIL} from "../constants/index";
 
 const initialState = {
     name: '',
-    loginStatus: false,
-    loading: true
+    loginStatus: false
 };
 
 export default function login(state = initialState,action){
@@ -11,20 +10,16 @@ export default function login(state = initialState,action){
         case LOGINOK:
             return {
                 name: action.name,
-                loginStatus: true,
-                loading: false
-            };
+                loginStatus: true            };
         case LOGOUT:
             return {
                 name : action.name,
-                loginStatus: false,
-                loading: false
+                loginStatus: false
             };
         case LOGINFAIL:
             return {
                 name: action.name,
-                loginStatus: false,
-                loading: false
+                loginStatus: false
             }
         default:
             return state;

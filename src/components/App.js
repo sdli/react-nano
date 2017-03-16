@@ -1,4 +1,5 @@
 import LoginForm from "./login/LoginForm.js";
+import Loading from "./utils/loading.js";
 import IndexPage from './index/index.js';
 import React , { Component } from "react";
 import Tab from "./Tab.js";
@@ -10,12 +11,12 @@ class LoginPage extends Component{
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleSubmit = ({userName,password}) =>{
+    handleSubmit = ({userName,password,dispatch}) =>{
         if(typeof userName === "undefined" || userName == null || typeof password === "undefined" || password == null){
             alert('请输入正确的用户名和密码！');
         }else{
             const {loginCheck} = this.props;
-            console.log(loginCheck(userName,password));
+            loginCheck(userName,password);
         }
     }
 
@@ -28,6 +29,9 @@ class LoginPage extends Component{
                 </MuiThemeProvider>
                 <MuiThemeProvider>
                     <IndexPage {...this.props} />
+                </MuiThemeProvider>
+                <MuiThemeProvider>
+                    <Loading {...this.props} />
                 </MuiThemeProvider>
             </div>
         );
