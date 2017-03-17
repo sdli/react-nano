@@ -2,10 +2,13 @@ $blue: #00BCD4;
 
 .loginDiv{
     width: 90%;
-    margin: 32px 5%;
+    margin: 32px auto;
     box-shadow: 0 0 10px #999999;
-    position: absolute;
-    min-height: 90%; 
+    position: relative;
+    min-height: 90%;
+    max-width: 375px;
+    min-height: 600px;
+    max-height: 960px;
 }
 .loginHeader{
     width: 100%;

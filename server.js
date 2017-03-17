@@ -25,10 +25,10 @@ app.use("/api",function(req,res){
   proxy.web(req,res,{target: 'http://localhost:3060'});
 });
 
+//文件加载
 app.use("/static/bundle.js",function(req,res){
   res.sendFile(__dirname + '/dist/bundle.js');
 });
-
 app.use("/static/vendor.js",function(req,res){
   res.sendFile(__dirname + '/dist/vendor.js');
 });

@@ -1,6 +1,6 @@
 import React , { Component } from "react";
 import Nav from '../nav/nav.js';
-import IndexMenu from './indexMenu.js';
+// import IndexMenu from './indexMenu.js';
 
 class index extends Component{
     constructor(props){
@@ -17,7 +17,7 @@ class index extends Component{
                         <Nav name={name} />
                     }
                 </header>
-                <IndexMenu />
+                {/*<IndexMenu indexMenu={this.props.indexMenu}/>*/}
             </div>
         );
     }

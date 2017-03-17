@@ -8,7 +8,7 @@ app.use(session({
   secret: 'sessiontest',
   resave: false,
   saveUninitialized: false,
-  cookie: { maxAge: 3000}
+  cookie: { maxAge: 300000}
 }));
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -35,7 +35,7 @@ app.post('/login',function(req,res,next){
           res.setHeader("Content-Type","application/json");
           setTimeout(function() {
               res.json(result);
-          }, 2000);
+          }, 400);
     }else{
        const result = {
               status: false,

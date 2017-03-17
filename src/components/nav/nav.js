@@ -18,7 +18,7 @@ class Nav extends Component{
         /*
         open用户开关drawer，drawerWidth计算drawer宽度
         */
-        this.state = {open:false,drawerWidth: '240px'};
+        this.state = {open:false,drawerWidth: '240'};
         this.ShowLeftCase = this.ShowLeftCase.bind(this);
     }
 
@@ -36,7 +36,13 @@ class Nav extends Component{
     componentWillMount(){
         if(typeof window !== 'undefined'){
             let clientWidth = window.screen.availWidth;
-            this.setState({drawerWidth: clientWidth*0.75});
+            console.log(clientWidth);
+            if(clientWidth >= 960){
+                this.setState({drawerWidth: 300}); 
+            }else{
+                this.setState({drawerWidth: clientWidth*0.75});
+            }
+            
         }
     }
 

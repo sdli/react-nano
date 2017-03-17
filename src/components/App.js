@@ -33,6 +33,9 @@ class LoginPage extends Component{
                 <MuiThemeProvider>
                     <Loading {...this.props} />
                 </MuiThemeProvider>
+                <div>
+                    {this.props.children}
+                </div>
             </div>
         );
     }

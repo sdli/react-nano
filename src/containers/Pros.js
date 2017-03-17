@@ -1,16 +1,15 @@
 import {connect} from "react-redux";
-import App from "../components/App";
+import Pros from "../components/pros/pros.js";
 import * as actions from "../actions/login.js";
 
-const loginContainer = connect(
+const ProsContainer = connect(
     state=>{
         return {
         name:state.loginInfo.name,
         loginStatus:state.loginInfo.loginStatus,
-        loading: state.loading.loading,
-        indexMenu: state.indexMenu.indexMenu
+        loading: state.loading.loading
     };},
     actions
-)(App); 
+)(Pros); 
 
-export default loginContainer;
+export default ProsContainer;

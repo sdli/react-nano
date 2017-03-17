@@ -1,4 +1,4 @@
-import { LOGINOK, LOGOUT , LOGINFAIL} from "../constants/index";
+import { LOGINOK, LOGOUT , LOGINFAIL, HIDEINDEXMENU, SHOWINDEXMENU} from "../constants/index";
 import {loading} from './loading';
 
 export function login(name,type){
@@ -49,6 +49,21 @@ export function loginCheck(username,password){
     }
 }
 
+export function toggleIndexMenu(type){
+    switch (type){
+        case 'hide':
+            return {
+                type: HIDEINDEXMENU 
+            };
+            break;
+        case 'show':
+            return {
+                type: SHOWINDEXMENU
+            };
+            break;
+    }
+}
+
 export function getAuth(){
     return dispatch =>{
         dispatch(loading('loading'));
@@ -60,9 +75,11 @@ export function getAuth(){
                 if(parseInt(json.code)>=1){
                     dispatch(loading('ready'));
                     dispatch(login(json.username,"loginOK"));
+                    return true;
                 }else{
                     dispatch(loading('ready'));
                     dispatch(login('',"loginFail"));
+                    return false;
                 }
             }
         );

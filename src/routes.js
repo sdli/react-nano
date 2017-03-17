@@ -1,14 +1,29 @@
 import React from "react";
-import { Route, IndexRoute} from "react-router";
-import Main from "./containers/Main";
+import { Router,Route, IndexRoute, hashHistory} from "react-router";
 import App from "./containers/App";
+import Pros from './containers/Pros';
+import IndexMenu from './containers/indexMenu';
 import {getAuth} from "./actions/login";
 // import Tab from "./containers/Tab";
 export default store =>{
-    const checkLogin = ()=> store.dispatch(getAuth());
+    const checkLogin = (nextState,replace)=> {
+        store.dispatch(getAuth());
+    }
+
+    const preLoad = (nextState,replace,cb)=>{
+        console.log(store.getState().loginInfo.loginStatus);
+        if(!store.getState().loginInfo.loginStatus){
+            replace('/');
+        }
+        cb();
+    };
+
     return (
-        <Route path="/" component={Main} onEnter={checkLogin}>
-            <IndexRoute component={App}/>
-        </Route>
+        <Router history={hashHistory}>
+            <Route path="/" component={App} onEnter={checkLogin} >
+                <IndexRoute component={IndexMenu} />
+                <Route path='/pros' component={Pros} />
+            </Route>
+        </Router>
     );
 }

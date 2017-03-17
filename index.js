@@ -6,17 +6,17 @@ import thunk from 'redux-thunk';
 import reducers from "./src/reducers";
 
 import LoginApp from "./src/containers/App.js";
-import { match, Router, browserHistory } from 'react-router';
+import { match, Router, hashHistory } from 'react-router';
 import getRoutes from './src/routes';
 
 const initialState = {};
 
-const store = createStore(reducers,initialState,compose(
-    applyMiddleware(thunk),
-    window.devToolsExtension ? window.devToolsExtension() : f => f
+const store = createStore(reducers,initialState,
+    compose(
+      applyMiddleware(thunk),
 ));
 const rootElement = document.getElementById('root');
-const history = browserHistory;
+const history = hashHistory;
 const routes = getRoutes(store)
 
 match({ history, routes }, (err, redirect, renderProps) => {
