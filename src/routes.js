@@ -2,7 +2,7 @@ import React from "react";
 import { Router,Route, IndexRoute, hashHistory} from "react-router";
 import App from "./containers/App";
 import Pros from './containers/Pros';
-import IndexMenu from './containers/indexMenu';
+import IndexMenu from './containers/IndexMenu';
 import {getAuth} from "./actions/login";
 // import Tab from "./containers/Tab";
 export default store =>{
