@@ -1,7 +1,7 @@
 import {HIDEINDEXMENU,SHOWINDEXMENU} from "../constants/index";
 
 const initialState = {
-    indexMenu: true
+    indexMenu: false
 };
 
 export default function toggleIndexMenu(state = initialState,action){

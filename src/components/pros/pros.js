@@ -33,6 +33,8 @@ class Pros extends Component{
         }
 
         render(){
+            const {loginStatus,loading,indexMenu} = this.props;
+            if(!loginStatus || loading || !indexMenu) return null;
             return (
                   <MuiThemeProvider>
                       <ProList />

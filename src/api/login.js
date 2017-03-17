@@ -8,7 +8,7 @@ app.use(session({
   secret: 'sessiontest',
   resave: false,
   saveUninitialized: false,
-  cookie: { maxAge: 300000}
+  cookie: { maxAge: 5000}
 }));
 
 app.use(bodyParser.urlencoded({ extended: false }));

@@ -3,11 +3,14 @@ import { Router,Route, IndexRoute, hashHistory} from "react-router";
 import App from "./containers/App";
 import Pros from './containers/Pros';
 import IndexMenu from './containers/IndexMenu';
-import {getAuth} from "./actions/login";
+import {getAuth,toggleIndexMenu} from "./actions/login";
 // import Tab from "./containers/Tab";
 export default store =>{
     const checkLogin = (nextState,replace)=> {
         store.dispatch(getAuth());
+        if(store.getState().loginInfo.loginStatus){
+            store.dispatch(toggleIndexMenu('show'));
+        }
     }
 
     const preLoad = (nextState,replace,cb)=>{
