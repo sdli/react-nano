@@ -1,0 +1,55 @@
+.leftNavBar{
+    width: 100%;
+}
+
+.contentInit{
+    display: block;
+}
+
+@media screen and (min-width: 480px){
+    .leftNavBar{
+        width: 300px;
+    }
+    .contentInit{
+        display: table;
+        *display: inline-block;
+    }
+}
+
+.contentLeft{
+    width: 100%;
+    display: block;
+}
+
+.hide{
+    display: none;
+}
+
+@media screen and (min-width: 480px){
+    .contentLeft{
+        width: 300px;
+        display: table-cell;
+        background-color: #ffffff;
+        box-shadow: 5px 0 7px #f0f0f0;
+    }
+
+    .hide{
+        width: 300px;
+        display: table-cell;
+        background-color: #ffffff;
+        box-shadow: 5px 0 7px #f0f0f0;
+    }
+}
+
+.contentRight{
+    display:block;
+}
+
+@media screen and (min-width: 480px){
+    .contentRight{
+        width: 100%;
+        padding: 32px 16px;
+        display: table-cell;
+        vertical-align: top;
+    }
+}

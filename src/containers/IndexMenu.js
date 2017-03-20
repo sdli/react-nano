@@ -1,15 +1,15 @@
 import {connect} from "react-redux";
-import IndexMenu from "../components/index/indexMenu";
+import Index from "../components/index/index";
 import * as actions from "../actions/login.js";
 
-const indexMenuContainer = connect(
+const IndexContainer = connect(
     state=>{
         return {
-        indexMenu: state.indexMenu.indexMenu,
         loginStatus: state.loginInfo.loginStatus,
         loading: state.loading.loading,
+        name: state.loginInfo.name
     };},
     actions
-)(IndexMenu); 
+)(Index); 
 
-export default indexMenuContainer;
+export default IndexContainer;

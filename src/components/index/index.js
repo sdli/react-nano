@@ -1,6 +1,7 @@
 import React , { Component } from "react";
 import Nav from '../nav/nav.js';
-// import IndexMenu from './indexMenu.js';
+import IndexMenu from './indexMenu.js';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class index extends Component{
     constructor(props){
@@ -12,12 +13,16 @@ class index extends Component{
         if(!loginStatus) return null;
         return (
             <div>
-                <header>
-                    {loginStatus &&
-                        <Nav name={name} />
-                    }
-                </header>
-                {/*<IndexMenu indexMenu={this.props.indexMenu}/>*/}
+                <MuiThemeProvider>
+                    <header>
+                        {loginStatus &&
+                            <Nav name={name} />
+                        }
+                    </header>
+                </MuiThemeProvider>
+                <MuiThemeProvider>
+                    <IndexMenu loginStatus={loginStatus}/>
+                </MuiThemeProvider>
             </div>
         );
     }

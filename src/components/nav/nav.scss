@@ -1,0 +1,27 @@
+.appNavBar{
+    display: block;
+}
+@media screen and (max-width: 480px){
+    .appNavBar{
+        display: none;
+    }
+}
+
+.leftNavHeaderBar{
+    width: 100%;
+    display: block;
+}
+
+@media screen and (min-width: 480px){
+    .leftNavHeaderBar{
+        display:none !important;
+        // width: 300px !important;
+    }
+}
+
+.right_icon_init{
+    color: #ffffff;
+}
+.right_icon_init svg{
+    color: #ffffff !important;
+}

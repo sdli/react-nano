@@ -33,6 +33,7 @@ app.use("/static/vendor.js",function(req,res){
   res.sendFile(__dirname + '/dist/vendor.js');
 });
 
+//监听
 app.listen(port, function(error) {
   if (error) {
     console.error(error)

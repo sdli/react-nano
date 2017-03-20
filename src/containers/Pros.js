@@ -7,7 +7,8 @@ const ProsContainer = connect(
         return {
         name:state.loginInfo.name,
         loginStatus:state.loginInfo.loginStatus,
-        loading: state.loading.loading
+        loading: state.loading.loading,
+        indexMenu: state.indexMenu.indexMenu
     };},
     actions
 )(Pros); 

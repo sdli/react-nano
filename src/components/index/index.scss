@@ -1,3 +1,7 @@
+.indexIntroduction{
+    display: none;
+}
+
 .func_ul{
     list-style: none;
     width: 100%;
@@ -7,7 +11,6 @@
 
 .func_ul_li:first-child{
     flex:1;
-    height: 100px;
     border-right: 1px solid #f0f0f0;
     background-color: #ffffff;
 }
@@ -16,11 +19,11 @@
     flex:1;
     height: 100px;
     background-color: #ffffff;
+    cursor: pointer;
 }
 
 .func_ul_li:last-child{
     flex:1;
-    height: 100px;
     border-left: 1px solid #f0f0f0;
     background-color: #ffffff;
 }
@@ -39,4 +42,41 @@
     text-align: center;
     font-size: 12px;
     color: #999999;
+}
+.indexMenu{
+    width: 100%;
+}
+.indexFooter{
+    margin: 200px auto 32px auto;
+    text-align: center;
+    color: #999999;
+    font-size: 14px;
+}
+@media screen and (min-width: 480px){
+    .indexMenu{
+        min-width: 480px;
+        max-width: 960px;
+        width: 100%;
+        margin: 64px auto 0 auto;
+        box-shadow: 2px 5px 8px #999999;
+    }
+    .func_ul_li{
+        height: 120px;
+    }
+    .func_tag_div{
+        height: 85px;
+        text-align: center;
+        padding: 28px;
+    }
+    .func_ul_li:hover{
+        background-color: #f0f0f0;
+    }
+    .indexIntroduction{
+        margin: 64px auto 32px auto;
+        line-height: 32px;
+        color: #4d4d4d;
+        font-size: 24px;
+        text-align: center;
+        display: block;
+    }
 }

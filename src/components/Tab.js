@@ -7,7 +7,7 @@ export default function Tab({loginStatus}){
         );
     }else{
         return (
-        <div>暂未登陆！</div>
+            <div>暂未登陆！</div>
         );
     }
 }

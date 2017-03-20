@@ -41,7 +41,7 @@ class App extends Component{
     render(){
         const { name, loginStatus , handleSubmit, loading} = this.props;
         //如果加载Auth未完成，则直接返回空标签;
-        if(loginStatus) return(<div></div>);
+        if(loginStatus || loading) return(null);
         return (
             <div>
                 {/*Auth加载完成后，根据逻辑加载相应页面*/}

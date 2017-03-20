@@ -28,9 +28,6 @@ class LoginPage extends Component{
                     <LoginForm onSubmit={this.handleSubmit} {...this.props} />
                 </MuiThemeProvider>
                 <MuiThemeProvider>
-                    <IndexPage {...this.props} />
-                </MuiThemeProvider>
-                <MuiThemeProvider>
                     <Loading {...this.props} />
                 </MuiThemeProvider>
                 <div>
