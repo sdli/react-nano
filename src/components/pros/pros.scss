@@ -8,7 +8,7 @@
 
 @media screen and (min-width: 480px){
     .leftNavBar{
-        width: 300px;
+        width: 270px;
     }
     .contentInit{
         display: table;
@@ -27,14 +27,14 @@
 
 @media screen and (min-width: 480px){
     .contentLeft{
-        width: 300px;
+        width: 270px;
         display: table-cell;
         background-color: #ffffff;
         box-shadow: 5px 0 7px #f0f0f0;
     }
 
     .hide{
-        width: 300px;
+        width: 270px;
         display: table-cell;
         background-color: #ffffff;
         box-shadow: 5px 0 7px #f0f0f0;
@@ -43,13 +43,26 @@
 
 .contentRight{
     display:block;
+    padding: 16px 16px 88px 16px;
 }
 
 @media screen and (min-width: 480px){
     .contentRight{
         width: 100%;
-        padding: 32px 16px;
         display: table-cell;
         vertical-align: top;
+        padding: 16px 16px 88px 16px;
     }
+}
+.contentRightInset{
+    background-color: #ffffff;
+    box-shadow: 0 3px 5px #f0f0f0;
+    width: 100%;
+}
+.initDivPadding{
+    padding: 16px;
+}
+.showMoreProList{
+    text-align: center;
+    height: 32px;
 }

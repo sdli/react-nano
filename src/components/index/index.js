@@ -2,6 +2,7 @@ import React , { Component } from "react";
 import Nav from '../nav/nav.js';
 import IndexMenu from './indexMenu.js';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import DefaultTheme from '../theme/default.theme.js';
 
 class index extends Component{
     constructor(props){
@@ -13,14 +14,14 @@ class index extends Component{
         if(!loginStatus) return null;
         return (
             <div>
-                <MuiThemeProvider>
+                <MuiThemeProvider muiTheme={DefaultTheme}>
                     <header>
                         {loginStatus &&
                             <Nav name={name} />
                         }
                     </header>
                 </MuiThemeProvider>
-                <MuiThemeProvider>
+                <MuiThemeProvider muiTheme={DefaultTheme}>
                     <IndexMenu loginStatus={loginStatus}/>
                 </MuiThemeProvider>
             </div>

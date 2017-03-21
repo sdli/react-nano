@@ -10,6 +10,7 @@ import Divider from 'material-ui/Divider';
 import ActionInfo from 'material-ui/svg-icons/action/info';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import './pros.scss';
+import DefaultTheme from '../theme/default.theme.js';
 
 class ProList extends Component{
     constructor(){
@@ -36,23 +37,24 @@ class ProList extends Component{
          return (
             <div className="contentInit">
                 <List style={{backgroundColor: '#ffffff'}} className="leftNavBar">
-                    <ListItem primaryText="商品管理" leftIcon={<ContentInbox />} onClick={this.handleRouter('/pros/pro_management')} style={{border_bottom:'1px solid #f0f0f0'}} />
+                    <ListItem primaryText="商品管理" leftIcon={<ContentInbox />} onClick={this.handleRouter('/pros/pro_management')} style={{border_bottom:'1px solid #f0f0f0'}} innerDivStyle={{fontSize: '14px'}} />
                     <Divider style={{backgroundColor:'#f0f0f0'}} />
-                    <ListItem primaryText="分类管理" leftIcon={<ActionGrade />} onClick={this.handleRouter('/pros/pro_branches')} style={{border_bottom:'1px solid #f0f0f0'}} />
+                    <ListItem primaryText="分类管理" leftIcon={<ActionGrade />} onClick={this.handleRouter('/pros/pro_branches')} style={{border_bottom:'1px solid #f0f0f0'}} innerDivStyle={{fontSize: '14px'}} />
                     <Divider style={{backgroundColor:'#f0f0f0'}} />
-                    <ListItem primaryText="单位管理" leftIcon={<ContentSend />} onClick={this.handleRouter('/pros/pro_unit')} style={{border_bottom:'1px solid #f0f0f0'}} />
+                    <ListItem primaryText="单位管理" leftIcon={<ContentSend />} onClick={this.handleRouter('/pros/pro_unit')} style={{border_bottom:'1px solid #f0f0f0'}} innerDivStyle={{fontSize: '14px'}} />
                     <Divider style={{backgroundColor:'#f0f0f0'}} />
-                    <ListItem primaryText="供应商管理" leftIcon={<ContentDrafts />} onClick={this.handleRouter('/pros/pro_supply')} style={{border_bottom:'1px solid #f0f0f0'}} />
+                    <ListItem primaryText="供应商管理" leftIcon={<ContentDrafts />} onClick={this.handleRouter('/pros/pro_supply')} style={{border_bottom:'1px solid #f0f0f0'}} innerDivStyle={{fontSize: '14px'}} />
                     <Divider style={{backgroundColor:'#f0f0f0'}} />
-                    <ListItem primaryText="条形码管理" leftIcon={<ContentInbox />} 
+                    <ListItem primaryText="条形码管理" leftIcon={<ContentInbox />}
+                        innerDivStyle={{fontSize: '14px'}} 
                         style={{border_bottom:'1px solid #f0f0f0'}}
                         open={this.state.open}
                         onNestedListToggle={this.handleNestedListToggle}
                         nestedItems={[
                             <Divider style={{backgroundColor:'#f0f0f0'}} inset={true} />,
-                            <ListItem key={1} primaryText="条码酷商品" leftIcon={<ContentDrafts />} style={{border_bottom:'1px solid #f0f0f0'}} />,
+                            <ListItem key={1} primaryText="条码酷商品" leftIcon={<ContentDrafts />} style={{border_bottom:'1px solid #f0f0f0'}} innerDivStyle={{fontSize: '14px'}} />,
                             <Divider style={{backgroundColor:'#f0f0f0'}} inset={true} />,
-                            <ListItem key={2} primaryText="分配条形码商品到分店" leftIcon={<ContentDrafts />} style={{border_bottom:'1px solid #f0f0f0'}} />,
+                            <ListItem key={2} primaryText="分配条形码商品到分店" leftIcon={<ContentDrafts />} style={{border_bottom:'1px solid #f0f0f0'}} innerDivStyle={{fontSize: '14px'}} />,
                         ]}/>
                     <Divider style={{backgroundColor:'#f0f0f0'}} />
                 </List>
@@ -69,7 +71,8 @@ class Pros extends Component{
 
     componentWillMount(){
         if(typeof window !== 'undefined'){
-            this.leftWidth = window.screen.availHeight - 64 ;
+            this.leftHeight = parseInt(window.screen.availHeight) - 64 ;
+            console.log(this.leftHeight);
         }
     }
 
@@ -78,16 +81,16 @@ class Pros extends Component{
         if(!loginStatus) return null;
         return (
             <div>
-                <MuiThemeProvider>
+                <MuiThemeProvider muiTheme={DefaultTheme}>
                     <NavHeader title="商品管理" {...this.props} />
                 </MuiThemeProvider>
                 <div className="contentInit">
-                    <MuiThemeProvider>
-                        <div className={indexMenu?"contentLeft":"hide"} style={{height: this.leftWidth + 'px'}}>
+                    <MuiThemeProvider muiTheme={DefaultTheme}>
+                        <div className={indexMenu?"contentLeft":"hide"} style={{height: this.leftHeight + 'px'}}>
                             <ProList />
                         </div>
                     </MuiThemeProvider>
-                    <MuiThemeProvider>
+                    <MuiThemeProvider muiTheme={DefaultTheme}>
                         <div className="contentRight">
                             {this.props.children}
                         </div>

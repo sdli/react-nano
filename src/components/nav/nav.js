@@ -1,4 +1,5 @@
 import React , {Component} from "react";
+import {hashHistory} from 'react-router';
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 import {List, ListItem} from 'material-ui/List';
@@ -43,6 +44,7 @@ class Nav extends Component{
         */
         this.state = {open:false,drawerWidth: '240'};
         this.ShowLeftCase = this.ShowLeftCase.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
     ShowLeftCase(){
@@ -68,6 +70,12 @@ class Nav extends Component{
         }
     }
 
+    handleClick(path){
+        return function(){
+            hashHistory.push(path);
+        }
+    }
+
     render(){
         return (
             <div>
@@ -90,7 +98,7 @@ class Nav extends Component{
                         showMenuIconButton={false}
                     />
                     <List>
-                        <ListItem primaryText="管理首页" leftIcon={<ContentInbox />} />
+                        <ListItem primaryText="管理首页" leftIcon={<ContentInbox />} onClick={this.handleClick('/')} />
                         <ListItem primaryText="个人信息" leftIcon={<ActionGrade />} />
                         <ListItem primaryText="清理缓存" leftIcon={<ContentSend />} />
                         <ListItem primaryText="退出登录" leftIcon={<ContentDrafts />} />
