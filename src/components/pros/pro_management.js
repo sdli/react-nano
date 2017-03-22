@@ -1,18 +1,35 @@
 import React , { Component } from 'react';
 import Table from "../tables/proList";
 import IconButton from 'material-ui/IconButton';
+import RaisedButton from 'material-ui/RaisedButton';
 import ProBar from '../nav/toobar_pro';
 import './pros.scss';
 import ButtonLine from '../buttons/button_group_line';
 import LinearProgress from 'material-ui/LinearProgress';
-import ArrowDown from 'material-ui/svg-icons/hardware/keyboard-arrow-down';
 import {cyan500} from "material-ui/styles/colors";
 
 class newCom extends Component{
         constructor(props){
             super(props);
             this.heigthSet = parseInt(window.screen.availHeight) - 88 - 64 - 64;
-            this.state = {completed: 100};
+            this.state = {completed: 0,mode: 'determinate',opacity:0.3};
+            this.handleSearch = this::(this.handleSearch);
+        }
+
+        handleSearch(){
+            let that =this;
+            setTimeout(function(){   
+                that.setState({completed:20,opacity:1});
+            },200);
+            setTimeout(function(){   
+                that.setState({completed:50,opacity:1});
+            },500);
+            setTimeout(function(){   
+                that.setState({completed:90,opacity:1});
+            },1000);
+            setTimeout(function(){   
+                that.setState({completed:0,opacity:0.3});
+            },2000);
         }
 
         render(){
@@ -23,21 +40,12 @@ class newCom extends Component{
             ];
             return (
                 <div className="contentRightInset" style={{minHeight: this.heigthSet + 'px'}}>
-                    <ProBar />
+                    <ProBar handleSearch={this.handleSearch} />
                     <div className="initDivPadding">
-                        {list.map((val)=>{
-                            return (
-                                <ButtonLine list={val} seleted='0' />
-                            );
-                        })}
-                        <div className="showMoreProList">
-                            <IconButton tooltip="显示更多商品列表" touch={true} tooltipPosition="bottom-center">
-                                 <ArrowDown color={cyan500} />
-                            </IconButton>                  
-                        </div>
+                        <RaisedButton label="新增商品" primary={true} />
                     </div>
                     <div>
-                        <LinearProgress mode="determinate" value={this.state.completed} />
+                        <LinearProgress mode={this.state.mode} value={this.state.completed} min="0" max="100" style={{opacity:this.state.opacity}}  />
                     </div>
                     <div className="initDivPadding">
                         <Table />
