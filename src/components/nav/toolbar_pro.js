@@ -13,7 +13,7 @@ import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui
 import ArrowDropRight from 'material-ui/svg-icons/navigation-arrow-drop-right';
 import Popover from 'material-ui/Popover';
 import ArrowDown from 'material-ui/svg-icons/hardware/keyboard-arrow-down';
-
+import PureRenderMixin from "react-addons-pure-render-mixin";
 export default class ToolbarExamplesSimple extends Component {
 
   constructor(props) {
@@ -29,6 +29,7 @@ export default class ToolbarExamplesSimple extends Component {
     };
     this.handleClear = this.handleClear.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
   }
 
   handleChange = (event, index, value) => this.setState({value});
@@ -74,6 +75,7 @@ export default class ToolbarExamplesSimple extends Component {
   }
 
   render() {
+    console.log("toolbar component");
     const {handleSearch} = this.props;
     return (
       <Toolbar style={{backgroundColor: '#ffffff',borderBottom: '1px solid #f0f0f0',boxShadow:'0 2px 6px #f0f0f0'}}>

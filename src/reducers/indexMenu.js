@@ -7,13 +7,13 @@ const initialState = {
 export default function toggleIndexMenu(state = initialState,action){
     switch (action.type){
         case HIDEINDEXMENU:
-            return {
+            return Object.assign({},initialState,{
                 indexMenu: false
-            };
+            });
         case SHOWINDEXMENU:
-            return {
+            return Object.assign({},initialState,{
                 indexMenu: true
-            };
+            });
         default:
             return state;
     }

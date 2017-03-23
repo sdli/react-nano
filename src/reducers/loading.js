@@ -7,13 +7,13 @@ const initialState = {
 export default function loadingStatus(state = initialState,action){
     switch (action.type){
         case LOADING:
-            return {
+            return Object.assign({},state,{
                 loading: action.loading
-            };
+            });
         case READY:
-            return {
+            return Object.assign({},state,{
                 loading: action.loading
-            };
+            });
         default:
             return state;
     }

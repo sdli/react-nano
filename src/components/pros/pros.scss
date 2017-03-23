@@ -66,3 +66,36 @@
     text-align: center;
     height: 32px;
 }
+.branchCellBody{
+    padding-bottom: 16px;
+}
+.branchCellBody .branchChip{
+    float: left !important;
+}
+.branchChip{
+    margin: 4px 8px !important;
+}
+.branchChip > svg{
+    visibility: hidden !important;
+}
+.branchChip:hover > svg{
+    visibility: visible !important;
+}
+.branchCell{
+    min-height: 120px;
+    margin: 8px 16px;
+    border-bottom: 1px solid #f0f0f0;
+}
+.branchCellHead{
+    height: 44px;
+    padding: 8px 8px;
+}
+.push_left{
+    float: left;
+}
+.push_right{
+    float: right;
+}
+.grey_font{
+    color: #999999;
+}

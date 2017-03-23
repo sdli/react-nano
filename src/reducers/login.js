@@ -8,19 +8,20 @@ const initialState = {
 export default function login(state = initialState,action){
     switch (action.type){
         case LOGINOK:
-            return {
+            return Object.assign({},state,{
                 name: action.name,
-                loginStatus: true            };
+                loginStatus: true            
+            });
         case LOGOUT:
-            return {
+            return Object.assign({},state,{
                 name : action.name,
                 loginStatus: false
-            };
+            });
         case LOGINFAIL:
-            return {
+            return Object.assign({},state,{
                 name: action.name,
                 loginStatus: false
-            }
+            });
         default:
             return state;
     }
