@@ -7,7 +7,6 @@ import './pros.scss';
 import ButtonLine from '../buttons/button_group_line';
 import LinearProgress from 'material-ui/LinearProgress';
 import {cyan500} from "material-ui/styles/colors";
-import PureRenderMixin from "react-addons-pure-render-mixin";
 
 class newCom extends Component{
         constructor(props){
@@ -15,7 +14,6 @@ class newCom extends Component{
             this.heigthSet = parseInt(window.screen.availHeight) - 88 - 64 - 64;
             this.state = {completed: 0,mode: 'determinate',opacity:0.3};
             this.handleSearch = this::(this.handleSearch);
-            this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
         }
 
         handleSearch(){
