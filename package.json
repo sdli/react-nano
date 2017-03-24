@@ -38,6 +38,7 @@
     "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.3.13",
     "body-parser": "^1.17.0",
+    "captchapng": "^0.0.1",
     "express": "^4.13.3",
     "extract-text-webpack-plugin": "^2.1.0",
     "immutable": "^3.8.1",

@@ -60,15 +60,10 @@ export default class ToolbarExamplesSimple extends Component {
     };
 
   handleInputChange(name){
-    switch (name){
-      case 'keyword':
-        return (e)=>this.setState({keyword:e.target.value});
-      case 'code':
-        return (e)=>this.setState({code:e.target.value});
-      case 'priceStart':
-        return (e)=>this.setState({priceStart: e.target.value});
-      case 'priceEnd':
-        return (e)=>this.setState({priceEnd: e.target.value});
+    return (e)=>{
+      this.setState({
+        [name]: e.target.value
+      });
     }
   }
 
