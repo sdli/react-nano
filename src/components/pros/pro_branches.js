@@ -3,6 +3,7 @@ import Bar from '../nav/toolbar_branch';
 import BranchCell from './utils/branch';
 import IconButton from 'material-ui/IconButton';
 import RaisedButton from 'material-ui/RaisedButton';
+import requset from '../../utils/request';
 import './pros.scss';
 
 class newCom extends Component{
@@ -47,6 +48,14 @@ class newCom extends Component{
                             <BranchCell title={val.title} list={val.list} />
                         );
                     })}
+                    <button onClick={() => requset('/api/login',
+                                {
+                                    method:'post',
+                                    body:'username=steven&password=lishudong123'
+                                },
+                                function(data){console.log(data);}
+                        )
+                    }>点击我测试</button>
                 </div>
             );
         }

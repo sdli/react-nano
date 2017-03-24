@@ -27,13 +27,16 @@ class newCom extends Component{
 
     render(){
         const that = this;
+        const fontSet = {
+            fontSize: '11px'
+        };
         console.log('branch!');
         return (
             <div className="branchCell">
                 <div className="branchCellHead grey_font">
                     <span className="push_left">{this.state.title}</span>
                     <IconMenu
-                        className="push_right"
+                        className="push_right branch_func"
                         iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
                         anchorOrigin={{horizontal: 'right', vertical: 'top'}}
                         targetOrigin={{horizontal: 'right', vertical: 'top'}}
@@ -50,7 +53,7 @@ class newCom extends Component{
                                 onRequestDelete={() => this.handleRequestDelete(val.tag)}
                                 className="branchChip"
                             >
-                            <Avatar size={14}>{this.state.title[0]}</Avatar>
+                            <Avatar size={32} style={fontSet}>{this.state.title[0]}</Avatar>
                             {val.label}
                             </Chip>
                         );

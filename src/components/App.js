@@ -1,6 +1,5 @@
 import LoginForm from "./login/LoginForm.js";
 import Loading from "./utils/loading.js";
-import IndexPage from './index/index.js';
 import React , { Component } from "react";
 import Tab from "./Tab.js";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';

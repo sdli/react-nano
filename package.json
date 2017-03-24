@@ -16,6 +16,7 @@
     "cookie-parser": "^1.4.3",
     "css-loader": "^0.26.4",
     "express-session": "^1.15.1",
+    "fetch-polyfill": "^0.8.2",
     "http-proxy": "^1.16.2",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",

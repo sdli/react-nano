@@ -1,5 +1,6 @@
 import { LOGINOK, LOGOUT , LOGINFAIL, HIDEINDEXMENU, SHOWINDEXMENU} from "../constants/index";
 import {loading} from './loading';
+import httpRequest from "../utils/request";
 
 export function login(name,type){
     switch(type){
@@ -30,12 +31,13 @@ export function login(name,type){
 export function loginCheck(username,password){
     return dispatch =>{
         dispatch(loading('loading'));
-        fetch('/api/login',{
+        httpRequest(
+            '/api/login',{
                 method: 'POST',
                 headers: {"Content-type": "application/x-www-form-urlencoded; charset=UTF-8"},
                 body: "username=" + username + "&password=" + password,
-                credentials:'include'
-        }).then(response => response.json()).then(json =>{
+            },(data)=>{
+                const json = JSON.parse(data);
                 if(parseInt(json.code)>=1){
                     dispatch(login(json.username,'loginOK'));
                     dispatch(loading('ready'));
@@ -67,11 +69,12 @@ export function toggleIndexMenu(type){
 export function getAuth(){
     return dispatch =>{
         dispatch(loading('loading'));
-        fetch('/api/loadAuth',{
-            method: 'POST',
-            headers: {"Content-type": "application/x-www-form-urlencoded; charset=UTF-8"},
-            credentials:'include'
-        }).then(response => response.json()).then(json =>{
+        httpRequest(
+            '/api/loadAuth',{
+                method: 'POST',
+                headers: {"Content-type": "application/x-www-form-urlencoded; charset=UTF-8"}
+            },(data)=>{
+                const json = JSON.parse(data);
                 if(parseInt(json.code)>=1){
                     dispatch(loading('ready'));
                     dispatch(login(json.username,"loginOK"));

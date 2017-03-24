@@ -77,6 +77,7 @@
 }
 .branchChip > svg{
     visibility: hidden !important;
+    fill: #EF5350 !important;
 }
 .branchChip:hover > svg{
     visibility: visible !important;
@@ -99,3 +100,14 @@
 .grey_font{
     color: #999999;
 }
+.branch_func{
+    height: 28px;
+    width: 28px;
+}
+.branch_func > button{
+    height: 28px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 28px !important;
+}
+
