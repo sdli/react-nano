@@ -52,9 +52,9 @@ class ProList extends Component{
                         onNestedListToggle={this.handleNestedListToggle}
                         nestedItems={[
                             <Divider style={{backgroundColor:'#f0f0f0'}} inset={true} />,
-                            <ListItem key={1} primaryText="条码酷商品" leftIcon={<ContentDrafts />} style={{border_bottom:'1px solid #f0f0f0'}} innerDivStyle={{fontSize: '14px'}} />,
+                            <ListItem key={1} primaryText="我的条码库" leftIcon={<ContentDrafts />} style={{border_bottom:'1px solid #f0f0f0'}} innerDivStyle={{fontSize: '14px'}} onClick={this.handleRouter('/pros/pro_code_check')} />,
                             <Divider style={{backgroundColor:'#f0f0f0'}} inset={true} />,
-                            <ListItem key={2} primaryText="分配条形码商品到分店" leftIcon={<ContentDrafts />} style={{border_bottom:'1px solid #f0f0f0'}} innerDivStyle={{fontSize: '14px'}} />,
+                            <ListItem key={2} primaryText="分配条形码商品到分店" leftIcon={<ContentDrafts />} style={{border_bottom:'1px solid #f0f0f0'}} innerDivStyle={{fontSize: '14px'}} onClick={this.handleRouter('/pros/pro_code_assign')} />,
                         ]}/>
                     <Divider style={{backgroundColor:'#f0f0f0'}} />
                 </List>

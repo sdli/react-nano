@@ -10,6 +10,9 @@ import ProBranches from "./components/pros/pro_branches";
 import ProUnit from "./components/pros/pro_unit";
 import ProSupply from "./components/pros/pro_supply";
 import EmptyComponent from './components/pros/pro_empty';
+import ProCodeCheck from './components/pros/pro_code_check';
+import ProCodeAssign from './components/pros/pro_code_assign';
+
 // import Tab from "./containers/Tab";
 export default store =>{
     const checkLogin = (nextState,replace)=> {
@@ -35,6 +38,8 @@ export default store =>{
                     <Route path="/pros/pro_branches" component={ProBranches} onEnter={hideIfNeeded} />
                     <Route path="/pros/pro_unit" component={ProUnit} onEnter={hideIfNeeded} />
                     <Route path="/pros/pro_supply" component={ProSupply} onEnter={hideIfNeeded} />
+                    <Route path="/pros/pro_code_check" component={ProCodeCheck} onEnter={hideIfNeeded} />
+                    <Route path="/pros/pro_code_assign" component={ProCodeAssign} onEnter={hideIfNeeded} />
                 </Route>
             </Route>
         </Router>
